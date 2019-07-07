@@ -1,26 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="Container">
+        <ConfessionBox />
+      </div>
   );
 }
+
+function ConfessionBox(props) {
+  return (
+      <div className="Box">
+        <p>
+          My boyfriend and I both have physical disabilities that we feared would keep us from ever being in a relationship or finding love. However, we're both currently the happiest we've ever been, and celebrating our anniversary quite soon. Just a reminder that you are not unlovable, and there is someone out there for you!
+        </p>
+        <button className="Button">Generate a confession!</button>
+      </div>
+  )
+}
+
 
 export default App;
