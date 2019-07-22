@@ -1,4 +1,6 @@
 import React from 'react';
+import { useState } from 'react';
+import axios from 'axios';
 import './App.css';
 
 function App() {
@@ -9,16 +11,41 @@ function App() {
   );
 }
 
+function Spinner() {
+    return (
+        <div className="lds-roller">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    );
+}
+
 function ConfessionBox(props) {
+  const [text, setText] = useState("Click the button to generate a confession");
+  const [loading, setLoading] = useState(false);
+
+  const fetchConfession = () => {
+      setLoading(true);
+      axios.get("http://cub-21-7-19.appspot.com/api").then(res => {
+          setText(res.data.text);
+          setLoading(false);
+      }).catch(reason => setText(reason));
+  };
+
   return (
       <div className="Box">
         <p>
-          My boyfriend and I both have physical disabilities that we feared would keep us from ever being in a relationship or finding love. However, we're both currently the happiest we've ever been, and celebrating our anniversary quite soon. Just a reminder that you are not unlovable, and there is someone out there for you!
+            {loading ? <Spinner /> : text}
         </p>
-        <button className="Button">Generate a confession!</button>
+        <button className="Button" onClick={fetchConfession}>Another one!</button>
       </div>
   )
 }
-
 
 export default App;
