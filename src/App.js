@@ -32,7 +32,7 @@ function ConfessionBox(props) {
 
   const fetchConfession = () => {
       setLoading(true);
-      axios.get("http://cub-21-7-19.appspot.com/api").then(res => {
+      axios.get("https://cub-21-7-19.appspot.com/api").then(res => {
           setText(res.data.text);
           setLoading(false);
       }).catch(reason => setText(reason));
