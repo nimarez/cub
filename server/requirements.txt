@@ -5,7 +5,7 @@ itsdangerous==1.1.0
 Jinja2==2.10.1
 markovify==0.7.1
 MarkupSafe==1.1.1
-nltk==3.4.4
+nltk==3.6.3
 six==1.12.0
 Unidecode==1.1.1
 Werkzeug==0.15.5
